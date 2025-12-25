@@ -66,7 +66,7 @@ const Navbar = ({ onGoToCover, onShowText, onJumpToPage, totalPages, currentPage
                 }}
               >
                 {/* Header */}
-                <div className="px-4 pt-4 pb-3">
+                <div className="px-5 pt-5 pb-3">
                   <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/50">
                     Navigation
                   </p>

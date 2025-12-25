@@ -48,7 +48,7 @@ export const storyPages = [
     textPosition: 'bottom',
     ambientEffects: [
       'snow',
-      { type: 'glowing-eyes', position: { x: 68, y: 35 }, size: 'small' }
+      { type: 'glowing-eyes', position: { x: 64, y: 35 }, size: 'small' }
     ]
   },
   {
@@ -143,7 +143,7 @@ export const storyPages = [
     interaction: null,
     textPosition: 'bottom',
     ambientEffects: [
-      { type: 'glowing-eyes', position: { x: 78, y: 32 }, size: 'small' }
+      { type: 'glowing-eyes', position: { x: 56, y: 47 }, size: 'small' }
     ]
   },
   {

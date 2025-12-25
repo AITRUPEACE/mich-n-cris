@@ -176,7 +176,7 @@ const StoryPage = ({ pageData, pageIndex, onComplete }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
       >
-        <div className="glass-panel rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 max-w-2xl mx-auto">
+        <div className="glass-panel rounded-2xl sm:rounded-3xl max-w-2xl mx-auto" style={{ padding: '2rem' }}>
           {/* Main story text - responsive sizing with better line height */}
           <p className="font-story text-lg sm:text-xl md:text-2xl lg:text-[1.625rem] text-white/90 leading-[1.9] sm:leading-[2] tracking-wide text-center sm:text-left px-1 sm:px-2">
             {pageData.text}
