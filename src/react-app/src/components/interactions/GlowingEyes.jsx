@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const GlowingEyes = ({ position = { x: 50, y: 30 }, size = 'medium', color = 'cyan' }) => {
   // Size configurations
   const sizeConfig = {
-    small: { eye: 'w-2 h-2 sm:w-2.5 sm:h-2.5', gap: 'gap-3 sm:gap-4', glow: 8, blur: 4 },
+    small: { eye: 'w-2 h-2 sm:w-2.0 sm:h-2.0', gap: 'gap-1 sm:gap-1', glow: 8, blur: 4 },
     medium: { eye: 'w-3 h-3 sm:w-4 sm:h-4', gap: 'gap-4 sm:gap-6', glow: 12, blur: 6 },
     large: { eye: 'w-4 h-4 sm:w-5 sm:h-5', gap: 'gap-5 sm:gap-8', glow: 16, blur: 8 }
   };
@@ -23,6 +23,11 @@ const GlowingEyes = ({ position = { x: 50, y: 30 }, size = 'medium', color = 'cy
       main: 'rgba(96, 165, 250, 0.9)', 
       glow: 'rgba(96, 165, 250, 0.7)',
       outer: 'rgba(96, 165, 250, 0.3)'
+    },
+    yellow: { 
+      main: 'rgba(255, 255, 0, 0.9)', 
+      glow: 'rgba(255, 255, 0, 0.7)',
+      outer: 'rgba(255, 255, 0, 0.3)'
     },
     white: { 
       main: 'rgba(255, 255, 255, 0.9)', 

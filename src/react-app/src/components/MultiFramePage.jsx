@@ -11,7 +11,10 @@ const FireplaceInteraction = lazy(() => import('./interactions/FireplaceInteract
 
 // Lazy load ambient effect components
 const SnowAmbient = lazy(() => import('./interactions/SnowAmbient'));
+const BlizzardAmbient = lazy(() => import('./interactions/BlizzardAmbient'));
 const GlowingEyes = lazy(() => import('./interactions/GlowingEyes'));
+const GlowingOrbs = lazy(() => import('./interactions/GlowingOrbs'));
+const RisingLines = lazy(() => import('./interactions/RisingLines'));
 
 const MultiFramePage = ({ pageData, pageIndex, onComplete }) => {
   const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
@@ -107,11 +110,12 @@ const MultiFramePage = ({ pageData, pageIndex, onComplete }) => {
     );
   };
   
-  // Text position classes
+  // Text position classes - optimized for both mobile and desktop
+  // Use left-1/2 -translate-x-1/2 for true horizontal centering on desktop
   const textPositionClasses = {
-    top: 'top-4 sm:top-6 md:top-8 left-3 right-3 sm:left-6 sm:right-6 md:left-8 md:right-8',
-    center: 'top-1/2 left-3 right-3 sm:left-6 sm:right-6 md:left-8 md:right-8 -translate-y-1/2',
-    bottom: 'bottom-4 sm:bottom-6 md:bottom-8 left-3 right-3 sm:left-6 sm:right-6 md:left-8 md:right-8'
+    top: 'top-4 sm:top-6 md:top-12 left-3 right-3 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-[90%] md:max-w-3xl',
+    center: 'top-1/2 left-3 right-3 md:left-1/2 md:right-auto md:-translate-x-1/2 -translate-y-1/2 md:w-[90%] md:max-w-3xl',
+    bottom: 'bottom-4 sm:bottom-6 md:bottom-12 left-3 right-3 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-[90%] md:max-w-3xl'
   };
   
   // Render ambient effects (non-blocking visual enhancements)
@@ -121,10 +125,13 @@ const MultiFramePage = ({ pageData, pageIndex, onComplete }) => {
     return (
       <Suspense fallback={null}>
         {pageData.ambientEffects.map((effect, index) => {
-          // Handle string shorthand (e.g., 'snow')
+          // Handle string shorthand (e.g., 'snow', 'blizzard')
           if (typeof effect === 'string') {
             if (effect === 'snow') {
               return <SnowAmbient key={`ambient-${index}`} />;
+            }
+            if (effect === 'blizzard') {
+              return <BlizzardAmbient key={`ambient-${index}`} />;
             }
             return null;
           }
@@ -137,6 +144,32 @@ const MultiFramePage = ({ pageData, pageIndex, onComplete }) => {
                 position={effect.position}
                 size={effect.size}
                 color={effect.color}
+              />
+            );
+          }
+          
+          if (effect.type === 'glowing-orbs') {
+            return (
+              <GlowingOrbs 
+                key={`ambient-${index}`}
+                intensity={effect.intensity}
+                colorScheme={effect.colorScheme}
+                size={effect.size}
+              />
+            );
+          }
+          
+          if (effect.type === 'rising-lines') {
+            return (
+              <RisingLines 
+                key={`ambient-${index}`}
+                intensity={effect.intensity}
+                color={effect.color}
+                speed={effect.speed}
+                lineLength={effect.lineLength}
+                radialEffect={effect.radialEffect}
+                vignette={effect.vignette}
+                glow={effect.glow}
               />
             );
           }
@@ -219,7 +252,7 @@ const MultiFramePage = ({ pageData, pageIndex, onComplete }) => {
           />
           {/* Subtle tap hint */}
           <motion.div 
-            className="absolute bottom-24 left-1/2 -translate-x-1/2 z-[41] pointer-events-none"
+            className="absolute bottom-70 left-1/2 -translate-x-1/2 z-[41] pointer-events-none"
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 0.4, 0] }}
             transition={{ duration: 3, repeat: Infinity }}
@@ -241,8 +274,8 @@ const MultiFramePage = ({ pageData, pageIndex, onComplete }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
       >
-        <div className="glass-panel rounded-2xl sm:rounded-3xl max-w-2xl mx-auto" style={{ padding: '2rem' }}>
-          <p className="font-story text-lg sm:text-xl md:text-2xl lg:text-[1.625rem] text-white/90 leading-[1.9] sm:leading-[2] tracking-wide text-center sm:text-left px-1 sm:px-2">
+        <div className="glass-panel-styled rounded-2xl sm:rounded-3xl mx-auto px-5 py-6 sm:px-8 sm:py-8 md:px-10 md:py-10 lg:px-12 lg:py-10">
+          <p className="font-story text-lg sm:text-xl md:text-2xl lg:text-[1.75rem] text-white/95 leading-[1.85] sm:leading-[1.95] md:leading-[2.1] tracking-wide text-center">
             {pageData.text}
           </p>
         </div>
@@ -267,7 +300,7 @@ const MultiFramePage = ({ pageData, pageIndex, onComplete }) => {
       
       {/* Page number */}
       <div className="absolute bottom-16 sm:bottom-4 right-3 sm:right-4 text-white/15 font-title text-xs sm:text-sm z-30 pointer-events-none">
-        {pageIndex}
+        {pageData.id?.replace('page-', '') || pageIndex}
       </div>
     </div>
   );

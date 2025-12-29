@@ -1,5 +1,5 @@
 // src/components/CoverPage.jsx
-// Cover page with centered content
+// Cover page with centered content - supports video or image backgrounds
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -7,13 +7,16 @@ import { BookOpen } from 'lucide-react';
 import { cn } from '../utils/cn';
 
 const CoverPage = ({ pageData }) => {
+  const hasVideo = pageData.backgroundVideo;
+  const backgroundSrc = pageData.background;
+
   return (
     <div className="relative w-full h-full overflow-hidden bg-slate-900">
       {/* Blurred background fill - creates atmosphere on wide screens */}
       <div 
         className="absolute inset-0 scale-110"
         style={{ 
-          backgroundImage: `url(${pageData.background})`,
+          backgroundImage: `url(${backgroundSrc})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'blur(30px)',
@@ -21,15 +24,48 @@ const CoverPage = ({ pageData }) => {
         }}
       />
       
-      {/* Main background image - contained to show full artwork */}
+      {/* Main background image - always present */}
       <motion.img
-        src={pageData.background}
+        src={backgroundSrc}
         alt=""
         className="absolute inset-0 w-full h-full object-contain z-[1]"
         initial={{ scale: 1.05, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
       />
+      
+      {/* Video overlay - small centered portal on mobile, fills screen on desktop */}
+      {hasVideo && (
+        <motion.div
+          className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0.3 }}
+        >
+          {/* Video container - small centered window on mobile, scales up on larger screens */}
+          <div 
+            className="relative w-[100%] h-[47%] sm:w-[65%] sm:h-[45%] md:w-[80%] md:h-[65%] lg:w-full lg:h-full overflow-hidden"
+            style={{
+              // Soft vignette edge to blend with static image underneath
+              maskImage: 'radial-gradient(ellipse 100% 100% at center, black 35%, transparent 59%)',
+              WebkitMaskImage: 'radial-gradient(ellipse 100% 100% at center, black 40%, transparent 85%)',
+            }}
+          >
+            <video
+              src={pageData.backgroundVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+              style={{
+                // Crop out video's title bars by adjusting position
+                objectPosition: 'center 35%',
+              }}
+            />
+          </div>
+        </motion.div>
+      )}
       
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 z-[2]" />

@@ -12,8 +12,8 @@ const FogWipe = ({ onComplete, pageData, onFrameChange }) => {
   const lastPosRef = useRef({ x: 0, y: 0 });
   const ctxRef = useRef(null);
   
-  // Brush size - larger on mobile for finger
-  const getBrushSize = () => window.innerWidth < 768 ? 50 : 40;
+  // Brush size - larger on mobile for finger, bigger on desktop for faster wiping
+  const getBrushSize = () => window.innerWidth < 768 ? 50 : 70;
   
   // Initialize canvas with frost effect
   useEffect(() => {

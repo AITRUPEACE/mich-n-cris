@@ -28,7 +28,7 @@ const FireplaceInteraction = ({ onComplete, onFrameChange }) => {
       {/* Firewood bucket tap area - approximate position */}
       {stage === 'bucket' && (
         <motion.div
-          className="absolute bottom-1/4 left-1/4 w-32 h-32 sm:w-40 sm:h-40 cursor-pointer"
+          className="absolute bottom-3/8 left-2/9 w-16 h-16 sm:w-40 sm:h-40 cursor-pointer"
           onClick={handleBucketTap}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -38,7 +38,7 @@ const FireplaceInteraction = ({ onComplete, onFrameChange }) => {
         >
           {/* Visual hint */}
           <motion.div
-            className="absolute inset-0 border-2 border-amber-400/50 rounded-lg bg-amber-400/10 backdrop-blur-sm"
+            className="absolute inset-0 border-2 border-amber-400/50 rounded-xl bg-amber-400/5 backdrop-blur-lg"
             animate={{
               opacity: [0.5, 1, 0.5],
               scale: [1, 1.05, 1]

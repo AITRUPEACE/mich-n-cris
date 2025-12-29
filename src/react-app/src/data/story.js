@@ -7,7 +7,8 @@ export const storyPages = [
     type: 'cover',
     text: "Mish'n'Cris Adventures",
     subText: "Volume I: Concrescence",
-    background: '/images/cover.png'
+    background: '/images/cover.png',
+    backgroundVideo: '/images/cover-animation/Animated_Image_With_Subtle_Movement.mp4'
   },
   {
     id: 'page-1',
@@ -138,7 +139,7 @@ export const storyPages = [
   {
     id: 'page-13',
     type: 'story',
-    text: "While the kettle sang, Michelle glimpsed something at the window—two points of blue light, hovering in the dark.",
+    text: "While the kettle sang, Michelle glimpsed something at the window. Two tiny points of blue light, seemingly hovering in the dark.",
     background: '/images/13.png',
     interaction: null,
     textPosition: 'bottom',
@@ -149,7 +150,7 @@ export const storyPages = [
   {
     id: 'page-14',
     type: 'multi-frame',
-    text: "I saw those blue eyes out there, Cris said between sips of cocoa, they led us here.",
+    text: "They sat down started sipping Michelle's hot cocoa (marshmallow hot chocolate bombs).",
     textPosition: 'bottom',
     frames: [
       {
@@ -169,7 +170,7 @@ export const storyPages = [
   {
     id: 'page-15',
     type: 'story',
-    text: "Standing in the doorway, the cold rushed in, but curiosity pulled them forward.",
+    text: "Standing in the doorway, the cold rushed in, but curiosity pulled them forward... they stepped outside.",
     background: '/images/15.png',
     interaction: null,
     textPosition: 'bottom',
@@ -184,7 +185,7 @@ export const storyPages = [
     textPosition: 'bottom',
     ambientEffects: [
       'snow',
-      { type: 'glowing-eyes', position: { x: 50, y: 55 }, size: 'medium', color: 'cyan' }
+      { type: 'glowing-eyes', position: { x: 56, y: 48 }, size: 'small', color: 'cyan' }
     ]
   },
   {
@@ -194,7 +195,7 @@ export const storyPages = [
     background: '/images/17.png',
     interaction: null,
     textPosition: 'bottom',
-    ambientEffects: ['snow']
+    ambientEffects: ['blizzard', { type: 'glowing-eyes', position: { x: 61, y: 39 }, size: 'small', color: 'cyan' }]
   },
   {
     id: 'page-18',
@@ -203,7 +204,7 @@ export const storyPages = [
     background: '/images/18.png',
     interaction: null,
     textPosition: 'bottom',
-    ambientEffects: ['snow']
+    ambientEffects: ['blizzard']
   },
   {
     id: 'page-19',
@@ -211,7 +212,10 @@ export const storyPages = [
     text: "Through the trees ahead, colors began to bloom—soft purples and pinks pulsing like a heartbeat.",
     background: '/images/19.png',
     interaction: null,
-    textPosition: 'bottom'
+    textPosition: 'bottom',
+    ambientEffects: [
+      { type: 'glowing-orbs', intensity: 'subtle', colorScheme: 'mushroom' }
+    ]
   },
   {
     id: 'page-20',
@@ -219,7 +223,11 @@ export const storyPages = [
     text: "They stepped into a clearing carpeted with crystal mushrooms, each one glowing from within, and there in the center sat the kitten.",
     background: '/images/20.png',
     interaction: null,
-    textPosition: 'bottom'
+    textPosition: 'bottom',
+    ambientEffects: [
+      { type: 'glowing-orbs', intensity: 'normal', colorScheme: 'mushroom' },
+      { type: 'glowing-eyes', position: { x: 51, y: 43 }, size: 'small', color: 'yellow' }
+    ]
   },
   {
     id: 'page-21',
@@ -227,7 +235,10 @@ export const storyPages = [
     text: "Where are we...?? Michelle breathed, her words turning to mist in the impossible light.",
     background: '/images/21.png',
     interaction: null,
-    textPosition: 'bottom'
+    textPosition: 'bottom',
+    ambientEffects: [
+      { type: 'glowing-orbs', intensity: 'normal', colorScheme: 'mushroom' }
+    ]
   },
   {
     id: 'page-22',
@@ -235,7 +246,11 @@ export const storyPages = [
     text: "The kitten began to rise, floating gently upward, its eyes bright as twin moons.",
     background: '/images/22.png',
     interaction: null,
-    textPosition: 'bottom'
+    textPosition: 'bottom',
+    ambientEffects: [
+      { type: 'glowing-orbs', intensity: 'normal', colorScheme: 'cosmic' },
+      { type: 'glowing-eyes', position: { x: 40, y: 33 }, size: 'large', color: 'yellow' }
+    ]
   },
   {
     id: 'page-23',
@@ -243,7 +258,11 @@ export const storyPages = [
     text: "And then they were rising too.. lifted by something invisible and vast, the ground falling away beneath them.",
     background: '/images/23.png',
     interaction: null,
-    textPosition: 'bottom'
+    textPosition: 'bottom',
+    ambientEffects: [
+      { type: 'rising-lines', intensity: 'normal', color: 'cosmic' },
+      { type: 'glowing-orbs', intensity: 'normal', colorScheme: 'cosmic' }
+    ]
   },
   {
     id: 'page-24',
@@ -251,23 +270,37 @@ export const storyPages = [
     text: "They drifted above the clouds, the forest shrinking to a dark patchwork below, while above them the stars grew impossibly close.",
     background: '/images/24.png',
     interaction: null,
-    textPosition: 'bottom'
+    textPosition: 'bottom',
+    ambientEffects: [
+      { type: 'glowing-orbs', intensity: 'intense', colorScheme: 'cosmic' },
+      { type: 'rising-lines', intensity: 'intense', speed: 0.5, color: 'cosmic', radialEffect: { position: 'top', color: 'cosmic', intensity: 0.15, size: 'large' } }
+    ]
   },
   {
     id: 'page-25',
     type: 'story',
-    text: "Galaxies spiraled past like cosmic pinwheels, nebulae bloomed in colors without names, and the kitten floated between them, perfectly calm.",
+    text: "Galaxies spiraled past like cosmic pinwheels, nebulae concrescsing into one another, and the kitten floated between them - perfectly calm.",
     background: '/images/25.png',
     interaction: null,
-    textPosition: 'bottom'
+    textPosition: 'bottom',
+    ambientEffects: [
+      { type: 'glowing-orbs', intensity: 'intense', size: 'large', colorScheme: 'cosmic' },
+      { type: 'rising-lines', intensity: 'intense', speed: 3.5, color: 'cosmic', size: 'large', lineLength: 'long', 
+        radialEffect: { position: 'top', color: 'cosmic', intensity: 30.15, size: 'large' }, glow: true }
+    ]
   },
   {
     id: 'page-26',
     type: 'story',
-    text: "Space itself seemed to fold and unfold, carrying them through corridors of light toward something infinite.",
+    text: "They became the universe, they became the kitten... journeying through the cosmos, they became one. They learned of ancient times, saw future worlds, and felt the ineffable.",
     background: '/images/26.png',
     interaction: null,
-    textPosition: 'bottom'
+    textPosition: 'bottom',
+    ambientEffects: [
+      { type: 'glowing-orbs', intensity: 'intense', colorScheme: 'cosmic' },
+      { type: 'rising-lines', intensity: 'intense', speed: 10.5, color: 'cosmic', size: 'large', lineLength: 'long', 
+        radialEffect: { position: 'center', color: 'cosmic', intensity: 1.15, size: 'small' }, glow: true }
+    ]
   },
   {
     id: 'page-27',
@@ -275,13 +308,32 @@ export const storyPages = [
     text: "And in that vastness, they understood: every star, every soul, every moment... all one, all connected, all returning home.",
     background: '/images/27.png',
     interaction: null,
-    textPosition: 'bottom'
+    textPosition: 'bottom',
+    ambientEffects: [
+      { type: 'glowing-eyes', position: { x: 44, y: 38 }, size: 'large', color: 'blue' },
+      { type: 'glowing-orbs', intensity: 'intense', colorScheme: 'rainbow' },
+      { type: 'rising-lines', intensity: 'intense', speed: 0.1, color: 'cosmic', size: 'large', lineLength: 'long', 
+        radialEffect: { position: 'center', color: 'cosmic', intensity: 1.15, size: 'small' }, glow: true }
+    ]
+  },
+  {
+    id: 'time-passing',
+    type: 'transition',
+    text: "And so the seasons turned...",
+    flipStyle: 'film-reel',
+    panelImages: [
+      '/images/page-flip/panel-1 (1).png',
+      '/images/page-flip/panel-1 (2).png',
+      '/images/page-flip/panel-1 (3).png',
+    ],
+    totalDuration: 10000
   },
   {
     id: 'page-28',
     type: 'story',
     text: "Years later, on an October morning, Michelle and Cris sat on the porch of their cabin with coffee in hand, the cat purring softly between them.",
     background: '/images/28.png',
+    backgroundVideo: '/images/cover-animation/end-animation.mp4',
     interaction: null,
     textPosition: 'bottom'
   },
@@ -301,7 +353,7 @@ export const storyPages = [
       }
     ],
     ambientEffects: [
-      { type: 'glowing-eyes', position: { x: 25, y: 60 }, size: 'small' }
+      { type: 'glowing-eyes', position: { x: 64, y: 60 }, size: 'small' }
     ]
   }
 ];

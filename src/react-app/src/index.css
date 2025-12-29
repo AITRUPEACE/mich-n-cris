@@ -331,6 +331,103 @@ body {
   }
 }
 
+/* Styled Glass Panel - Centered, elegant design for desktop */
+.glass-panel-styled {
+  background: linear-gradient(
+    160deg,
+    rgba(12, 12, 18, 0.65) 0%,
+    rgba(8, 8, 14, 0.7) 40%,
+    rgba(10, 10, 16, 0.65) 100%
+  );
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  max-width: 100%;
+}
+
+/* Elegant top accent line */
+.glass-panel-styled::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 165, 116, 0.3) 20%,
+    rgba(212, 165, 116, 0.5) 50%,
+    rgba(212, 165, 116, 0.3) 80%,
+    transparent 100%
+  );
+  border-radius: inherit;
+}
+
+/* Subtle corner decorations */
+.glass-panel-styled::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: 
+    radial-gradient(ellipse at 50% -20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Desktop: refined, wider, better proportions */
+@media (min-width: 768px) {
+  .glass-panel-styled {
+    max-width: 1000px;
+    background: linear-gradient(
+      165deg,
+      rgba(10, 10, 16, 0.55) 0%,
+      rgba(6, 6, 12, 0.6) 50%,
+      rgba(8, 8, 14, 0.55) 100%
+    );
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 8px 48px rgba(0, 0, 0, 0.35),
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+  }
+  
+  .glass-panel-styled::before {
+    width: 50%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(212, 165, 116, 0.25) 15%,
+      rgba(212, 165, 116, 0.45) 50%,
+      rgba(212, 165, 116, 0.25) 85%,
+      transparent 100%
+    );
+  }
+}
+
+/* Large desktop: even more refined */
+@media (min-width: 1024px) {
+  .glass-panel-styled {
+    max-width: 1000px;
+    border-radius: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .glass-panel-styled {
+    max-width: 1000px;
+  }
+}
+
 /* Page corner drag indicator */
 .page-corner {
   background: linear-gradient(135deg, transparent 50%, rgba(255, 255, 255, 0.15) 50%);
