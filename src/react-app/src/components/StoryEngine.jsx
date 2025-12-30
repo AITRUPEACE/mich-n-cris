@@ -86,8 +86,11 @@ const StoryEngine = ({ className }) => {
         </PageFlipper>
       </div>
       
-      {/* Bottom navigation bar */}
-      <div className="relative z-50 bg-gradient-to-t from-black via-black/95 to-transparent pt-4 pb-3 px-4">
+      {/* Bottom navigation bar - safe area for mobile browsers */}
+      <div 
+        className="relative z-50 bg-gradient-to-t from-black via-black/95 to-transparent pt-4 px-4"
+        style={{ paddingBottom: 'max(16px, env(safe-area-inset-bottom, 16px))' }}
+      >
         {/* Progress bar */}
         <div className="w-full max-w-xs mx-auto mb-3">
           <div className="h-1 bg-white/10 rounded-full overflow-hidden">

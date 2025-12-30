@@ -89,10 +89,11 @@ const StoryPage = ({ pageData, pageIndex, onComplete }) => {
   // Text position classes - optimized for both mobile and desktop
   // Use left-1/2 -translate-x-1/2 for true horizontal centering on desktop
   // md:max-w-4xl = 896px, lg:max-w-5xl = 1024px for wider text on desktop
+  // Mobile bottom increased to account for nav bar below
   const textPositionClasses = {
     top: 'top-4 sm:top-6 md:top-12 left-3 right-3 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-[90%] md:max-w-4xl lg:max-w-5xl',
     center: 'top-1/2 left-3 right-3 md:left-1/2 md:right-auto md:-translate-x-1/2 -translate-y-1/2 md:w-[90%] md:max-w-4xl lg:max-w-5xl',
-    bottom: 'bottom-4 sm:bottom-6 md:bottom-12 left-3 right-3 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-[90%] md:max-w-4xl lg:max-w-5xl'
+    bottom: 'bottom-2 sm:bottom-4 md:bottom-12 left-3 right-3 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-[90%] md:max-w-4xl lg:max-w-5xl'
   };
   
   // Render ambient effects (non-blocking visual enhancements)
